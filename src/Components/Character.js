@@ -34,9 +34,6 @@ const Character = () => {
                 </div>
                 <div className="character-comics-list">
                     {character.comics.map((comic) => {
-                        {
-                            console.log(comic);
-                        }
                         return (
                             <div className="charachter-comics" key={comic._id}>
                                 <div className="comic-image">
@@ -60,11 +57,3 @@ const Character = () => {
 };
 
 export default Character;
-
-// <div className="wrapper">
-//     <div>
-//         <img src={`${path}.${extension}`} alt="character-marvel" />
-//     </div>
-{
-    /* </div> */
-}
