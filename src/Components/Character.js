@@ -23,28 +23,38 @@ const Character = () => {
 
         fetchData();
     }, [id]);
-    console.log('mon objet est == > ', character);
 
-    return (
+    return isLoading ? (
+        <span>En cours de chargement </span>
+    ) : (
         <section className="character-data">
-            {isLoading ? (
-                <span>En cours de chargement </span>
-            ) : (
-                character.comics.map((comic) => {
-                    <div className="character-comics" key={comic._id}>
-                        <div className="comic-image">
-                            <img
-                                src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-                                alt={comic.thumbnail.title}
-                            />
-                        </div>
-                        <div className="comic-information">
-                            <h4>{comic.thumbnail.title}</h4>
-                            <p>{comic.thumbnail.description}</p>
-                        </div>
-                    </div>;
-                })
-            )}
+            <div className="wrapper">
+                <div className="character-image">
+                    <img src={`${path}.${extension}`} alt={character.title} />
+                </div>
+                <div className="character-comics-list">
+                    {character.comics.map((comic) => {
+                        {
+                            console.log(comic);
+                        }
+                        return (
+                            <div className="charachter-comics" key={comic._id}>
+                                <div className="comic-image">
+                                    <img
+                                        src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+                                        alt={comic.title}
+                                    />
+                                </div>
+
+                                <div className="comic-information">
+                                    <h4>{comic.title}</h4>
+                                    <p>{comic.description}</p>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
         </section>
     );
 };

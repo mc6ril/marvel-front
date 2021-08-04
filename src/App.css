@@ -1,5 +1,6 @@
 @import './Styles/css/header.css';
 @import './Styles/css/home.css';
+@import './Styles/css/character.css';
 
 body {
     font-family: 'Roboto', sans-serif;
