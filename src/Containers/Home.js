@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router';
 
 const Home = ({ modal, setModal }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [characters, setCharacters] = useState();
+    const history = useHistory();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -22,6 +23,8 @@ const Home = ({ modal, setModal }) => {
         fetchData();
     }, []);
 
+    console.log(characters);
+
     return (
         <section className="home-section">
             <div className="wrapper">
@@ -31,23 +34,31 @@ const Home = ({ modal, setModal }) => {
                     <div className="character-list">
                         {characters.map((character) => {
                             return (
-                                <Link
-                                    to={`/character/${character._id}`}
+                                <div
+                                    className="character-image"
                                     key={character._id}
+                                    onClick={() => {
+                                        history.push({
+                                            pathname: `/character/${character._id}`,
+                                            state: {
+                                                path: character.thumbnail.path,
+                                                extension: character.thumbnail.extension,
+                                                id: character._id,
+                                            },
+                                        });
+                                    }}
                                 >
-                                    <div className="character-image">
-                                        <img
-                                            src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-                                            alt={character.name}
-                                        />
-                                        <div className="description">
-                                            <h4>{character.name}</h4>
-                                            {character.description && (
-                                                <p>{character.description} </p>
-                                            )}
-                                        </div>
+                                    <img
+                                        src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+                                        alt={character.name}
+                                    />
+                                    <div className="description">
+                                        <h4>{character.name}</h4>
+                                        {character.description && (
+                                            <p>{character.description} </p>
+                                        )}
                                     </div>
-                                </Link>
+                                </div>
                             );
                         })}
                     </div>

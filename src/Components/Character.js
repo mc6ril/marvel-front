@@ -1,19 +1,19 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const Character = () => {
     const [character, setCharacter] = useState();
     const [isLoading, setIsLoading] = useState(true);
-    const { id } = useParams;
+    const location = useLocation();
+    const { path, extension, id } = location.state;
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                    `https://marvel-api-cyril.herokuapp.com/character/${id}`,
+                    `https://marvel-api-cyril.herokuapp.com/comics/${id}`,
                 );
-                console.log(response.data);
                 setCharacter(response.data);
                 setIsLoading(false);
             } catch (error) {
@@ -23,18 +23,38 @@ const Character = () => {
 
         fetchData();
     }, [id]);
-
-    console.log(character);
+    console.log('mon objet est == > ', character);
 
     return (
         <section className="character-data">
             {isLoading ? (
                 <span>En cours de chargement </span>
             ) : (
-                <div className="wrapper">hello</div>
+                character.comics.map((comic) => {
+                    <div className="character-comics" key={comic._id}>
+                        <div className="comic-image">
+                            <img
+                                src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+                                alt={comic.thumbnail.title}
+                            />
+                        </div>
+                        <div className="comic-information">
+                            <h4>{comic.thumbnail.title}</h4>
+                            <p>{comic.thumbnail.description}</p>
+                        </div>
+                    </div>;
+                })
             )}
         </section>
     );
 };
 
 export default Character;
+
+// <div className="wrapper">
+//     <div>
+//         <img src={`${path}.${extension}`} alt="character-marvel" />
+//     </div>
+{
+    /* </div> */
+}
