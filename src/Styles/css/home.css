@@ -1,0 +1,40 @@
+.home-section {
+    width: 100%;
+}
+
+.character-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.character-list .character-image {
+    height: 500px;
+    width: 235px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+.character-list .character-image img {
+    width: 100%;
+    height: 55%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.character-list .character-image .description {
+    padding: 10px;
+    color: black;
+    text-align: justify;
+}
+.character-list .character-image .description h4 {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
