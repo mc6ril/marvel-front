@@ -27,6 +27,7 @@
     width: 280px;
     border-radius: 20px;
     overflow: hidden;
+    background-color: white;
 }
 
 .character-data .character-comics-list .charachter-comics img {

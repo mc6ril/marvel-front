@@ -1,10 +1,11 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
-const Home = ({ filter, setFilter }) => {
+const Comics = ({ filter, setFilter }) => {
+    const [comics, setComics] = useState();
     const [isLoading, setIsLoading] = useState(true);
-    const [characters, setCharacters] = useState();
     const [pages, setPages] = useState(0);
     const [skip, setSkip] = useState(0);
     const [search, setSearch] = useState('');
@@ -12,28 +13,24 @@ const Home = ({ filter, setFilter }) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            try {
-                const response = await axios.get(
-                    `https://marvel-api-cyril.herokuapp.com/characters?skip=${skip}&name=${search}`,
-                );
-                setCharacters(response.data.results);
-                setPages(Math.ceil(response.data.count / response.data.limit));
-                setIsLoading(false);
-            } catch (error) {
-                console.log(error.message);
-            }
+            const response = await axios.get(
+                `https://marvel-api-cyril.herokuapp.com/comics?skip=${skip}&title=${search}`,
+            );
+            setComics(response.data.results);
+            setPages(Math.ceil(response.data.count / response.data.limit));
+            setIsLoading(false);
         };
         fetchData();
     }, [skip, search]);
 
     return (
-        <section className="home-section">
+        <section className="comics-section">
             <div className="filter">
                 {filter ? (
                     <form>
                         <input
                             type="search"
-                            placeholder="Nom du personnage..."
+                            placeholder="Nom du comic..."
                             value={search}
                             onChange={(e) => {
                                 setSkip(0);
@@ -92,33 +89,32 @@ const Home = ({ filter, setFilter }) => {
                 {isLoading ? (
                     <span>En attente de chargement</span>
                 ) : (
-                    <div className="character-list">
-                        {characters.map((character) => {
+                    <div className="comics-list">
+                        {comics.map((comic) => {
                             return (
                                 <div
-                                    className="character-image"
-                                    key={character._id}
+                                    className="comic-image"
+                                    key={comic._id}
                                     onClick={() => {
                                         history.push({
-                                            pathname: `/character/${character._id}`,
+                                            pathname: `/comic/${comic._id}`,
                                             state: {
-                                                path: character.thumbnail.path,
-                                                extension: character.thumbnail.extension,
-                                                id: character._id,
+                                                path: comic.thumbnail.path,
+                                                extension: comic.thumbnail.extension,
+                                                id: comic._id,
                                             },
                                         });
                                     }}
                                 >
                                     <img
-                                        src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-                                        alt={character.name}
+                                        src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+                                        alt={comic.title}
                                     />
                                     <div className="description">
-                                        <h4>{character.name}</h4>
-                                        {character.description && (
-                                            <p>{character.description} </p>
-                                        )}
+                                        <h4>{comic.title}</h4>
+                                        {comic.description && <p>{comic.description} </p>}
                                     </div>
+                                    <FontAwesomeIcon icon="heart" />
                                 </div>
                             );
                         })}
@@ -129,4 +125,4 @@ const Home = ({ filter, setFilter }) => {
     );
 };
 
-export default Home;
+export default Comics;

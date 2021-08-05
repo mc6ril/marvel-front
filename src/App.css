@@ -1,9 +1,12 @@
 @import './Styles/css/header.css';
 @import './Styles/css/home.css';
 @import './Styles/css/character.css';
+@import './Styles/css/filter.css';
+@import './Styles/css/comics.css';
 
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: #f5f8f8;
 }
 
 /* Wrapper */

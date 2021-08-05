@@ -1,0 +1,28 @@
+.filter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    margin: 20px auto;
+    box-shadow: 0 0 4px 2px #554d53;
+    padding: 10px;
+    background-color: white;
+}
+.filter button {
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    background-color: #efbbc4;
+    color: #41505b;
+}
+
+.filter form {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.filter form input[type='search'] {
+    border: none;
+    border-bottom: 1px solid #41505b;
+    color: #41505b;
+}

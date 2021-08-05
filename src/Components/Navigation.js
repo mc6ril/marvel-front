@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 
 const Navigation = () => {
     return (
-        <div className="wrapper">
+        <div>
             <nav>
-                <ul>
+                <ul className="wrapper">
                     <div className="logo">
                         <Link to="/">
                             <h1>Marvel</h1>
