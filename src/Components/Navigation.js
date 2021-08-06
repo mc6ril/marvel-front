@@ -1,6 +1,19 @@
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react/cjs/react.development';
 
 const Navigation = ({ burger, setBurger }) => {
+    const [width, setWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+
+        width > 600 && setBurger(false);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [width, setBurger]);
+
     return (
         <div>
             <nav>
@@ -11,13 +24,28 @@ const Navigation = ({ burger, setBurger }) => {
                         </Link>
                     </div>
                     <div className={burger ? 'mobile-menu' : 'active-menu'}>
-                        <Link to="/">
+                        <Link
+                            to="/characters"
+                            onClick={() => {
+                                setBurger(false);
+                            }}
+                        >
                             <li>Personnages</li>
                         </Link>
-                        <Link to="/comics">
+                        <Link
+                            to="/comics"
+                            onClick={() => {
+                                setBurger(false);
+                            }}
+                        >
                             <li>Comics</li>
                         </Link>
-                        <Link to="/favorites">
+                        <Link
+                            to="/favorites"
+                            onClick={() => {
+                                setBurger(false);
+                            }}
+                        >
                             <li>Favoris</li>
                         </Link>
                     </div>

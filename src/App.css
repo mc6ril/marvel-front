@@ -1,7 +1,15 @@
 @import './Styles/css/header.css';
-@import './Styles/css/home.css';
 @import './Styles/css/character.css';
+@import './Styles/css/characterDescription.css';
 @import './Styles/css/filter.css';
 @import './Styles/css/comics.css';
 @import './Styles/css/slideMenu.css';
 @import './Styles/css/comicDescription.css';
+@import './Styles/css/home.css';
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: #d8e3e6;
+}

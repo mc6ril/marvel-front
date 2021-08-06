@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const Character = () => {
+const CharacterDescription = () => {
     const [character, setCharacter] = useState();
     const [isLoading, setIsLoading] = useState(true);
     const location = useLocation();
@@ -60,4 +60,4 @@ const Character = () => {
     );
 };
 
-export default Character;
+export default CharacterDescription;

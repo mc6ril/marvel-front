@@ -3,17 +3,31 @@
     align-items: center;
     justify-content: center;
     width: 40%;
-    margin: 40px auto;
-    box-shadow: 0 0 4px 2px #554d53;
+    margin: 50px auto;
+    border: 1px solid lightgray;
+    border-radius: 6px;
     padding: 10px;
     background-color: white;
 }
+.filter:hover {
+    box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.71);
+    transition: box-shadow 0.5s ease-in-out;
+}
+
 .filter button {
     padding: 10px;
     border: none;
     border-radius: 15px;
     background-color: #efbbc4;
     color: #41505b;
+}
+.filter button:hover {
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    background-color: #0e341c;
+    color: #efeeee;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 .filter form {

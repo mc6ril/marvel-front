@@ -1,39 +1,59 @@
 .home-section {
     width: 100%;
 }
-
-.character-list {
-    width: 100%;
+.home-section .home-menu {
+    margin-top: 50px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
+    width: 100%;
 }
-
-.character-list .character-image {
-    height: 500px;
-    width: 235px;
-    border-radius: 6px;
-    overflow: hidden;
+.home-section .home-menu .left-col,
+.home-section .home-menu .right-col {
+    width: 50%;
+    height: 100%;
+    margin-right: 50px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    background-color: white;
-}
-.character-list .character-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    overflow: hidden;
+    justify-content: center;
+    align-items: center;
 }
 
-.character-list .character-image .description {
-    padding: 30px;
-    color: black;
-    text-align: justify;
+.home-section .home-menu .left-col img,
+.home-section .home-menu .right-col img {
+    width: 100%;
+    max-height: calc(100vh - 200px);
+    object-fit: cover;
+    border-radius: 6px;
 }
-.character-list .character-image .description h4 {
+.home-section .home-menu .left-col img:hover,
+.home-section .home-menu .right-col img:hover {
+    box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.71);
+    transition: box-shadow 0.5s ease-in-out;
+}
+.home-section .home-menu h1 {
+    font-size: 3em;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
     text-align: center;
-    font-size: 1.1em;
-    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 760px) {
+    .home-section .home-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+    .home-section .home-menu .left-col,
+    .home-section .home-menu .right-col {
+        width: 100%;
+        height: 100%;
+        margin-right: 0;
+    }
+    .home-section .home-menu .left-col img,
+    .home-section .home-menu .right-col img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
