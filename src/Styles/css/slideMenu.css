@@ -1,17 +1,17 @@
-.slide-menu {
+.mobile-menu {
     display: none;
 }
 
 @media screen and (max-width: 600px) {
-    .slide-menu {
+    .mobile-menu {
+        display: block;
         width: 100vw;
         height: 100vh;
         position: absolute;
         top: 80px;
     }
 
-    .slide-menu a li {
-        width: 40%;
+    .mobile-menu a li {
         height: 60px;
         line-height: 2em;
         font-size: 2em;
@@ -19,14 +19,13 @@
         position: relative;
         cursor: pointer;
     }
-    .slide-menu a li::after {
+    .mobile-menu a li::after {
         position: absolute;
         content: '';
         height: 1px;
-        width: 50px;
+        width: 100%;
         background-color: black;
-        top: 50%;
-        left: 100%;
-        transform: translateY(-50%);
+        bottom: 0;
+        left: -13px;
     }
 }

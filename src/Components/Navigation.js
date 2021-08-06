@@ -10,7 +10,7 @@ const Navigation = ({ burger, setBurger }) => {
                             <h1>Marvel</h1>
                         </Link>
                     </div>
-                    <div className="header-menu">
+                    <div className={burger ? 'mobile-menu' : 'active-menu'}>
                         <Link to="/">
                             <li>Personnages</li>
                         </Link>

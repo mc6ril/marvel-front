@@ -43,18 +43,18 @@ header nav ul .logo h1 {
 
 /* Header menu */
 
-header nav .header-menu {
+header nav .active-menu {
     display: flex;
     gap: 10px;
 }
-header nav .header-menu a {
+header nav .active-menua {
     text-decoration: none;
     text-transform: uppercase;
     color: black;
     position: relative;
 }
 
-header nav .header-menu a:hover::after {
+header nav .active-menua:hover::after {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -82,7 +82,7 @@ header .burger {
     header nav ul .logo h1 {
         text-align: center;
     }
-    header nav .header-menu {
+    header nav .active-menu {
         display: none;
     }
 
