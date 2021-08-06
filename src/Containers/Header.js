@@ -1,13 +1,13 @@
 import Navigation from '../Components/Navigation';
 import backgroundImage from '../Styles/images/test3.png';
 
-const Header = () => {
+const Header = ({ burger, setBurger }) => {
     return (
         <header>
             <div className="header-image">
                 <img src={backgroundImage} alt={backgroundImage} />
             </div>
-            <Navigation />
+            <Navigation burger={burger} setBurger={setBurger} />
         </header>
     );
 };

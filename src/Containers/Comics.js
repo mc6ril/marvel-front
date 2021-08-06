@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
@@ -101,6 +100,8 @@ const Comics = ({ filter, setFilter }) => {
                                             state: {
                                                 path: comic.thumbnail.path,
                                                 extension: comic.thumbnail.extension,
+                                                description: comic.description,
+                                                title: comic.title,
                                                 id: comic._id,
                                             },
                                         });
@@ -112,9 +113,8 @@ const Comics = ({ filter, setFilter }) => {
                                     />
                                     <div className="description">
                                         <h4>{comic.title}</h4>
-                                        {comic.description && <p>{comic.description} </p>}
                                     </div>
-                                    <FontAwesomeIcon icon="heart" />
+                                    {/* <FontAwesomeIcon icon="heart" /> */}
                                 </div>
                             );
                         })}

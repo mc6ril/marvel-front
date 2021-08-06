@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const Navigation = () => {
+const Navigation = ({ burger, setBurger }) => {
     return (
         <div>
             <nav>
@@ -20,6 +20,14 @@ const Navigation = () => {
                         <Link to="/favorites">
                             <li>Favoris</li>
                         </Link>
+                    </div>
+                    <div
+                        className={burger ? 'burger active' : 'burger'}
+                        onClick={() => {
+                            setBurger(!burger);
+                        }}
+                    >
+                        <span></span>
                     </div>
                 </ul>
             </nav>

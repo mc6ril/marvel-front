@@ -3,22 +3,3 @@
 @import './Styles/css/character.css';
 @import './Styles/css/filter.css';
 @import './Styles/css/comics.css';
-
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f5f8f8;
-}
-
-/* Wrapper */
-
-.wrapper {
-    width: 80%;
-    margin: 0 auto;
-    position: relative;
-}
-
-a {
-    text-decoration: none;
-    text-transform: uppercase;
-    color: black;
-}

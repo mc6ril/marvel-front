@@ -12,10 +12,12 @@ library.add(faHeart);
 
 function App() {
     const [filter, setFilter] = useState(false);
+    const [burger, setBurger] = useState(false);
+
     return (
         <Router>
             <ScrollToTop />
-            <Header />
+            <Header burger={burger} setBurger={setBurger} />
             <Switch>
                 <Route exact path="/">
                     <Home filter={filter} setFilter={setFilter} />

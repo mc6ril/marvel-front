@@ -104,6 +104,8 @@ const Home = ({ filter, setFilter }) => {
                                             state: {
                                                 path: character.thumbnail.path,
                                                 extension: character.thumbnail.extension,
+                                                description: character.description,
+                                                name: character.name,
                                                 id: character._id,
                                             },
                                         });
@@ -115,9 +117,6 @@ const Home = ({ filter, setFilter }) => {
                                     />
                                     <div className="description">
                                         <h4>{character.name}</h4>
-                                        {character.description && (
-                                            <p>{character.description} </p>
-                                        )}
                                     </div>
                                 </div>
                             );

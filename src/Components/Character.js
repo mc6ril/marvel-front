@@ -32,6 +32,10 @@ const Character = () => {
                 <div className="character-image">
                     <img src={`${path}.${extension}`} alt={character.title} />
                 </div>
+                <div className="character-description">
+                    <h1>{character.name}</h1>
+                    <p>{character.description}</p>
+                </div>
                 <div className="character-comics-list">
                     {character.comics.map((comic) => {
                         return (

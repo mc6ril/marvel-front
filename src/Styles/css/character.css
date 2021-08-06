@@ -5,12 +5,22 @@
 .character-data .character-image {
     width: 50%;
     height: 500px;
-    margin: 20px auto;
+    margin: -300px auto 0;
 }
 .character-data .character-image img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+.character-data .character-description {
+    width: 33%;
+    margin: 40px auto 80px;
+}
+.character-data .character-description h1 {
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 2em;
+    text-decoration: underline;
 }
 
 .character-data .character-comics-list {
@@ -25,7 +35,7 @@
 .character-data .character-comics-list .charachter-comics {
     height: 650px;
     width: 280px;
-    border-radius: 20px;
+    border-radius: 6px;
     overflow: hidden;
     background-color: white;
 }
