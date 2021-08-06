@@ -1,0 +1,32 @@
+.slide-menu {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .slide-menu {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 80px;
+    }
+
+    .slide-menu a li {
+        width: 40%;
+        height: 60px;
+        line-height: 2em;
+        font-size: 2em;
+        margin: 40px 0;
+        position: relative;
+        cursor: pointer;
+    }
+    .slide-menu a li::after {
+        position: absolute;
+        content: '';
+        height: 1px;
+        width: 50px;
+        background-color: black;
+        top: 50%;
+        left: 100%;
+        transform: translateY(-50%);
+    }
+}

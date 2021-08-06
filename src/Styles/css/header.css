@@ -23,6 +23,7 @@ header nav {
     top: 0;
     z-index: 1;
     background-color: #f5f8f8;
+    border-bottom: 1px solid lightgrey;
 }
 header nav ul {
     display: flex;

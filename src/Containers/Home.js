@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 
-const Home = ({ filter, setFilter }) => {
+const Home = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [characters, setCharacters] = useState();
     const [pages, setPages] = useState(0);
@@ -29,64 +29,53 @@ const Home = ({ filter, setFilter }) => {
     return (
         <section className="home-section">
             <div className="filter">
-                {filter ? (
-                    <form>
-                        <input
-                            type="search"
-                            placeholder="Nom du personnage..."
-                            value={search}
-                            onChange={(e) => {
-                                setSkip(0);
-                                setSearch(e.target.value);
-                            }}
-                        />
-                        {/* Pagination */}
+                <form>
+                    <input
+                        type="search"
+                        placeholder="Nom du personnage..."
+                        value={search}
+                        onChange={(e) => {
+                            setSkip(0);
+                            setSearch(e.target.value);
+                        }}
+                    />
+                    {/* Pagination */}
 
-                        {skip ? (
-                            <button
-                                type="button"
-                                onClick={() => {
-                                    let newSkip = skip - 100;
-                                    setSearch('');
-                                    setSkip(newSkip);
-                                }}
-                            >
-                                Page précédente
-                            </button>
-                        ) : null}
-
-                        {skip < pages * 100 && (
-                            <button
-                                type="button"
-                                onClick={() => {
-                                    let newSkip = skip + 100;
-                                    setSearch('');
-                                    setSkip(newSkip);
-                                }}
-                            >
-                                Page suivante
-                            </button>
-                        )}
-
+                    {skip ? (
                         <button
-                            type="reset"
+                            type="button"
                             onClick={() => {
-                                setFilter(false);
-                                setSkip(0);
+                                let newSkip = skip - 100;
+                                setSearch('');
+                                setSkip(newSkip);
                             }}
                         >
-                            Réinitiliser
+                            Page précédente
                         </button>
-                    </form>
-                ) : (
+                    ) : null}
+
+                    {skip < pages * 100 && (
+                        <button
+                            type="button"
+                            onClick={() => {
+                                let newSkip = skip + 100;
+                                setSearch('');
+                                setSkip(newSkip);
+                            }}
+                        >
+                            Page suivante
+                        </button>
+                    )}
+
                     <button
+                        type="reset"
                         onClick={() => {
-                            setFilter(!filter);
+                            setSkip(0);
                         }}
                     >
-                        Filtres
+                        Réinitiliser
                     </button>
-                )}
+                </form>
             </div>
             <div className="wrapper">
                 {isLoading ? (

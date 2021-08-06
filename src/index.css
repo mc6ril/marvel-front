@@ -11,7 +11,8 @@ body {
     line-height: 20px;
 }
 
-ul {
+ul,
+li {
     list-style: none;
 }
 
