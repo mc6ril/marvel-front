@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react/cjs/react.development';
 
-const Navigation = ({ burger, setBurger }) => {
+const Navigation = ({ burger, setBurger, modal, setModal, userToken, setUser }) => {
     const [width, setWidth] = useState(window.innerWidth);
 
     useEffect(() => {
@@ -48,6 +48,27 @@ const Navigation = ({ burger, setBurger }) => {
                         >
                             <li>Favoris</li>
                         </Link>
+                        {userToken ? (
+                            <Link
+                                to="/"
+                                onClick={() => {
+                                    setUser(null);
+                                    setBurger(false);
+                                }}
+                            >
+                                <li>Se déconnecter</li>
+                            </Link>
+                        ) : (
+                            <Link
+                                to="/"
+                                onClick={() => {
+                                    setModal(!modal);
+                                    setBurger(false);
+                                }}
+                            >
+                                <li>Se connecter</li>
+                            </Link>
+                        )}
                     </div>
                     <div
                         className={burger ? 'burger active' : 'burger'}

@@ -14,6 +14,9 @@ header .header-image img {
     height: 100%;
     object-fit: cover;
 }
+header .header-image-opacity img {
+    display: none;
+}
 /* nav */
 
 header nav {
@@ -47,14 +50,14 @@ header nav .active-menu {
     display: flex;
     gap: 10px;
 }
-header nav .active-menua {
+header nav .active-menu a {
     text-decoration: none;
     text-transform: uppercase;
     color: black;
     position: relative;
 }
 
-header nav .active-menua:hover::after {
+header nav .active-menu a:hover::after {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -67,18 +70,96 @@ header nav .active-menua:hover::after {
 header .burger {
     display: none;
 }
+
+/* Formulaire */
+header .form {
+    width: 30%;
+    margin: 150px auto;
+    padding: 50px;
+    box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.71);
+    position: relative;
+}
+header .form .closure {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    background-color: #d2f6b8;
+    border-radius: 50%;
+}
+header .form .closure span {
+    content: '';
+    display: block;
+    height: 4px;
+    width: 70%;
+    background-color: black;
+}
+header .form .closure span:first-child {
+    transform: translate(6px, 18px) rotateZ(45deg);
+}
+header .form .closure span:last-child {
+    transform: translate(5px, 14px) rotateZ(-45deg);
+}
+
+header .form h1 {
+    text-align: center;
+    margin-bottom: 80px;
+    letter-spacing: 2px;
+}
+
+header form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+header form input {
+    padding: 20px;
+    border: none;
+    border-radius: 6px;
+}
+header form p {
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+header form input[type='email'],
+header form input[type='password'],
+header form input[type='text'] {
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-weight: bold;
+    outline: none;
+    border-radius: 40px;
+    letter-spacing: 1.5px;
+}
+
+header form input[type='submit'] {
+    cursor: pointer;
+    background-color: #efbbc4;
+    color: #41505b;
+    border: none;
+    border-radius: 6px;
+    min-width: 100px;
+    margin: 0 auto;
+}
+
 @media screen and (max-width: 1000px) {
     .header {
-        width: 90vh;
+        width: 90%;
     }
     header nav ul .logo h1 {
         font-size: 2em;
     }
+    header .form {
+        width: 70%;
+        padding: 40px;
+    }
 }
 @media screen and (max-width: 600px) {
-    .header {
-        width: 1.5;
-    }
     header nav ul .logo h1 {
         text-align: center;
     }
@@ -126,5 +207,8 @@ header .burger {
     }
     header .burger.active span::after {
         transform: translateY(0px) rotateZ(-45deg);
+    }
+    header .form {
+        width: 90%;
     }
 }
