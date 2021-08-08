@@ -21,7 +21,6 @@
 .home-section .home-menu .left-col img,
 .home-section .home-menu .right-col img {
     width: 100%;
-    max-height: calc(100vh - 200px);
     object-fit: cover;
     border-radius: 6px;
 }
@@ -33,7 +32,7 @@
 .home-section .home-menu h1 {
     font-size: 3em;
     letter-spacing: 3px;
-    margin-bottom: 20px;
+    margin: 40px auto 80px;
     text-align: center;
 }
 

@@ -6,6 +6,7 @@
 @import './Styles/css/slideMenu.css';
 @import './Styles/css/comicDescription.css';
 @import './Styles/css/home.css';
+@import './Styles/css/loader.css';
 
 footer {
     text-align: center;

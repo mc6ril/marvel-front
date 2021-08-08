@@ -1,5 +1,12 @@
-.home-section {
+.character-section {
     width: 100%;
+}
+
+.character-section h1 {
+    font-size: 3em;
+    letter-spacing: 4px;
+    text-align: center;
+    margin: 40px auto 80px;
 }
 
 .character-list {

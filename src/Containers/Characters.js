@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
+import Loader from '../Components/Loader';
 
 const Character = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -27,7 +28,8 @@ const Character = () => {
     }, [skip, search]);
 
     return (
-        <section className="home-section">
+        <section className="character-section">
+            <h1>Personnages</h1>
             <div className="filter">
                 <form>
                     <input
@@ -79,7 +81,7 @@ const Character = () => {
             </div>
             <div className="wrapper">
                 {isLoading ? (
-                    <span>En attente de chargement</span>
+                    <Loader />
                 ) : (
                     <div className="character-list">
                         {characters.map((character) => {

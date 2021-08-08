@@ -1,8 +1,10 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react/cjs/react.development';
+import Loader from './Loader';
 
-const ComicDescription = () => {
+const ComicDescription = ({ favoris, setFavoris }) => {
     const [comic, setComic] = useState();
     const [isLoading, setIsLoading] = useState(true);
     const location = useLocation();
@@ -20,7 +22,7 @@ const ComicDescription = () => {
     }, [id]);
 
     return isLoading ? (
-        <span>En cours de chargement</span>
+        <Loader />
     ) : (
         <section className="comic-data">
             <div className="wrapper">
@@ -30,6 +32,21 @@ const ComicDescription = () => {
                 <div className="comic-description">
                     <h1>{comic.name}</h1>
                     <p>{comic.description}</p>
+                    <FontAwesomeIcon
+                        icon="heart"
+                        onClick={() => {
+                            let tab = [...favoris];
+                            Object.values(tab).indexOf(id) === -1
+                                ? tab.push(id)
+                                : tab.splice(Object.values(tab).indexOf(id), 1);
+                            setFavoris(tab);
+                        }}
+                        className={
+                            Object.values(favoris).indexOf(id) !== -1
+                                ? 'favoris'
+                                : 'not-favoris'
+                        }
+                    />
                 </div>
             </div>
         </section>

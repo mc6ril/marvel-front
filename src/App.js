@@ -15,9 +15,9 @@ import Home from './Containers/Home';
 library.add(faHeart);
 
 function App() {
-    const [filter, setFilter] = useState(false);
     const [burger, setBurger] = useState(false);
     const [modal, setModal] = useState(false);
+    const [favoris, setFavoris] = useState([]);
     const [userToken, setUserToken] = useState(Cookies.get('userToken' || null));
 
     const setUser = (token) => {
@@ -52,19 +52,16 @@ function App() {
                         <Home />
                     </Route>
                     <Route exact path="/characters">
-                        <Character filter={filter} setFilter={setFilter} />
+                        <Character />
                     </Route>
                     <Route exact path="/character/:id">
-                        <CharacterDescription />
+                        <CharacterDescription favoris={favoris} setFavoris={setFavoris} />
                     </Route>
                     <Route exact path="/comics">
-                        <Comics filter={filter} setFilter={setFilter} />
+                        <Comics />
                     </Route>
                     <Route exact path="/comic/:id">
-                        <ComicDescription />
-                    </Route>
-                    <Route exact path="/favorites">
-                        <Home />
+                        <ComicDescription favoris={favoris} setFavoris={setFavoris} />
                     </Route>
                 </Switch>
             )}

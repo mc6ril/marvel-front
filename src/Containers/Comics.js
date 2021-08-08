@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import Loader from '../Components/Loader';
 
 const Comics = () => {
     const [comics, setComics] = useState();
@@ -24,6 +25,7 @@ const Comics = () => {
 
     return (
         <section className="comics-section">
+            <h1>Comics</h1>
             <div className="filter">
                 <form>
                     <input
@@ -75,7 +77,7 @@ const Comics = () => {
             </div>
             <div className="wrapper">
                 {isLoading ? (
-                    <span>En attente de chargement</span>
+                    <Loader />
                 ) : (
                     <div className="comics-list">
                         {comics.map((comic) => {
@@ -103,7 +105,6 @@ const Comics = () => {
                                     <div className="description">
                                         <h4>{comic.title}</h4>
                                     </div>
-                                    {/* <FontAwesomeIcon icon="heart" /> */}
                                 </div>
                             );
                         })}

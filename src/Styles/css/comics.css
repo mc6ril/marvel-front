@@ -2,6 +2,13 @@
     width: 100%;
 }
 
+.comics-section h1 {
+    font-size: 3em;
+    letter-spacing: 4px;
+    text-align: center;
+    margin: 40px auto 80px;
+}
+
 .comics-section .comics-list {
     width: 100%;
     display: flex;
@@ -18,6 +25,7 @@
     display: flex;
     flex-direction: column;
     background-color: white;
+    position: relative;
 }
 .comics-section .comics-list .comic-image:hover {
     box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.71);
@@ -40,9 +48,4 @@
     text-align: center;
     font-size: 1.1em;
     margin-bottom: 10px;
-}
-
-.comics-section .comics-list .comic-image i {
-    color: white;
-    background-color: white;
 }

@@ -40,14 +40,7 @@ const Navigation = ({ burger, setBurger, modal, setModal, userToken, setUser }) 
                         >
                             <li>Comics</li>
                         </Link>
-                        <Link
-                            to="/favorites"
-                            onClick={() => {
-                                setBurger(false);
-                            }}
-                        >
-                            <li>Favoris</li>
-                        </Link>
+
                         {userToken ? (
                             <Link
                                 to="/"

@@ -15,6 +15,7 @@
 .character-data .character-description {
     width: 33%;
     margin: 40px auto 80px;
+    position: relative;
 }
 .character-data .character-description h1 {
     font-size: 1.5em;
@@ -61,11 +62,33 @@
     text-align: justify;
 }
 
+.character-data .character-description .not-favoris {
+    color: green;
+    font-size: 2em;
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+}
+.character-data .character-description .favoris {
+    color: red;
+    font-size: 2em;
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+}
+
 @media screen and (max-width: 1000px) {
     .character-data .character-image {
         width: 70%;
         height: 500px;
         margin: 20px auto;
+    }
+    .character-data .character-description {
+        width: 55%;
+        margin: 40px auto 80px;
+        position: relative;
     }
 }
 
@@ -74,5 +97,10 @@
         width: 85%;
         height: 500px;
         margin: 20px auto;
+    }
+    .character-data .character-description {
+        width: 55%;
+        margin: 40px auto 80px;
+        position: relative;
     }
 }
