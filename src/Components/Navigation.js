@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react/cjs/react.development';
 
 const Navigation = ({ burger, setBurger, modal, setModal, userToken, setUser }) => {
-    const [width, setWidth] = useState(window.innerWidth);
+    const [width, setWidth] = useState();
 
     useEffect(() => {
         const handleResize = () => setWidth(window.innerWidth);
