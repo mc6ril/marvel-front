@@ -1,6 +1,6 @@
 import axios from 'axios';
+import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useState } from 'react/cjs/react.development';
 
 const Signup = ({ setLogin, setSignup, setUser, setModal }) => {
     const [username, setUsername] = useState('');
