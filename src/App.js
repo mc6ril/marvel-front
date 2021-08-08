@@ -17,7 +17,6 @@ library.add(faHeart);
 function App() {
     const [burger, setBurger] = useState(false);
     const [modal, setModal] = useState(false);
-    const [comicFavoris, setComicFavoris] = useState([]);
     const [userToken, setUserToken] = useState(Cookies.get('userToken' || null));
 
     const setUser = (token) => {
@@ -61,10 +60,7 @@ function App() {
                         <Comics />
                     </Route>
                     <Route exact path="/comic/:id">
-                        <ComicDescription
-                            comicFavoris={comicFavoris}
-                            setComicFavoris={setComicFavoris}
-                        />
+                        <ComicDescription />
                     </Route>
                 </Switch>
             )}

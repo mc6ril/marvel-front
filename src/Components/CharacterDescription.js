@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Loader from './Loader';
 
-const CharacterDescription = ({ favoris, setFavoris }) => {
+const CharacterDescription = () => {
     const [character, setCharacter] = useState();
     const [isLoading, setIsLoading] = useState(true);
     const location = useLocation();
