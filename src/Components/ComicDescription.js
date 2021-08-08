@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -32,21 +31,6 @@ const ComicDescription = ({ comicFavoris, setComicFavoris }) => {
                 <div className="comic-description">
                     <h1>{comic.name}</h1>
                     <p>{comic.description}</p>
-                    <FontAwesomeIcon
-                        icon="heart"
-                        onClick={() => {
-                            let tab = [...comicFavoris];
-                            Object.values(tab).indexOf(id) === -1
-                                ? tab.push(id)
-                                : tab.splice(Object.values(tab).indexOf(id), 1);
-                            setComicFavoris(tab);
-                        }}
-                        className={
-                            Object.values(comicFavoris).indexOf(id) !== -1
-                                ? 'favoris'
-                                : 'not-favoris'
-                        }
-                    />
                 </div>
             </div>
         </section>
