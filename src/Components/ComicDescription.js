@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react/cjs/react.development';
 import Loader from './Loader';
 
-const ComicDescription = ({ favoris, setFavoris }) => {
+const ComicDescription = ({ comicFavoris, setComicFavoris }) => {
     const [comic, setComic] = useState();
     const [isLoading, setIsLoading] = useState(true);
     const location = useLocation();
@@ -35,14 +35,14 @@ const ComicDescription = ({ favoris, setFavoris }) => {
                     <FontAwesomeIcon
                         icon="heart"
                         onClick={() => {
-                            let tab = [...favoris];
+                            let tab = [...comicFavoris];
                             Object.values(tab).indexOf(id) === -1
                                 ? tab.push(id)
                                 : tab.splice(Object.values(tab).indexOf(id), 1);
-                            setFavoris(tab);
+                            setComicFavoris(tab);
                         }}
                         className={
-                            Object.values(favoris).indexOf(id) !== -1
+                            Object.values(comicFavoris).indexOf(id) !== -1
                                 ? 'favoris'
                                 : 'not-favoris'
                         }
