@@ -20,7 +20,7 @@
     },
     "scripts": {
         "start": "react-scripts start",
-        "build": "GENERATE_SCRIPT=false react-scripts build",
+        "build": "GENERATE_SCRIPT=false CI= react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
